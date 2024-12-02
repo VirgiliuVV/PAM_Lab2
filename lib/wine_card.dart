@@ -83,7 +83,12 @@ class WineCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text('Type: ${wine.type}'),
+                Row(
+                  children: [
+                    Icon(Icons.wine_bar),
+                    Text('Type: ${wine.type}'),
+                  ],
+                ),
                 Text('Country: ${wine.country}'),
                 Text('Grape: ${wine.grape}'),
                 Text('Price: \$${wine.price.toStringAsFixed(2)}'),
@@ -127,7 +132,9 @@ class _WineListScreenState extends State<WineListScreen> {
   @override
   void initState() {
     super.initState();
-    _wineList = _loadWines();
+    setState(() {
+      _wineList = _loadWines();
+    });
   }
 
   Future<List<Wine>> _loadWines() async {
@@ -138,30 +145,23 @@ class _WineListScreenState extends State<WineListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Wine List'),
-      ),
-      body: FutureBuilder<List<Wine>>(
-        future: _wineList,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return const Center(child: Text('Error loading wine data'));
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text('No wines available'));
-          }
+    return FutureBuilder<List<Wine>>(
+      future: _wineList,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return const Center(child: Text('Error loading wine data'));
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Center(child: Text('No wines available'));
+        }
 
-          return Column(
-            children: [
-              Expanded(
-                child: WineCard(wines: snapshot.data!),
-              ),
-            ],
-          );
-        },
-      ),
+        return Column(
+          children: [
+            WineCard(wines: snapshot.data!),
+          ],
+        );
+      },
     );
   }
 }
