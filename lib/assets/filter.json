@@ -1,0 +1,65 @@
+{
+  "filters": {
+    "Type": [
+      {
+        "name": "Red",
+        "imageLink": "https://link.to/redwineimage.jpg",
+        "count": 123
+      },
+      {
+        "name": "White",
+        "imageLink": "https://link.to/whitewineimage.jpg",
+        "count": 98
+      },
+      {
+        "name": "Rose",
+        "imageLink": "https://link.to/rosewineimage.jpg",
+        "count": 45
+      }
+    ],
+    "Country": [
+      {
+        "name": "France",
+        "imageLink": "https://link.to/franceflag.jpg",
+        "count": 150
+      },
+      {
+        "name": "USA",
+        "imageLink": "https://link.to/usaflag.jpg",
+        "count": 75
+      },
+      {
+        "name": "Italy",
+        "imageLink": "https://link.to/italyflag.jpg",
+        "count": 80
+      }
+    ],
+    "Grape": [
+      {
+        "name": "Grenache",
+        "imageLink": "https://link.to/grenache.jpg",
+        "count": 60
+      },
+      {
+        "name": "Cabernet Sauvignon",
+        "imageLink": "https://link.to/cabernet.jpg",
+        "count": 120
+      },
+      {
+        "name": "Pinot Noir",
+        "imageLink": "https://link.to/pinotnoir.jpg",
+        "count": 90
+      },
+      {
+        "name": "Chardonnay",
+        "imageLink": "https://link.to/chardonnay.jpg",
+        "count": 110
+      },
+      {
+        "name": "Sauvignon Blanc",
+        "imageLink": "https://link.to/sauvignonblanc.jpg",
+        "count": 95
+      }
+    ]
+  }
+}

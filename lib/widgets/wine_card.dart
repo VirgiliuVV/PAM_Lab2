@@ -1,51 +1,9 @@
 import 'dart:convert'; // For jsonDecode
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // For loading assets
+import 'package:flutter/services.dart';
 
-class Wine {
-  final String name;
-  final String image;
-  final String type;
-  final String country;
-  final String grape;
-  final double price;
-  final int sizeMl;
-  final int criticsScore;
-  final bool available;
-  final bool favourite;
-  final String place;
-
-  Wine({
-    required this.name,
-    required this.image,
-    required this.type,
-    required this.country,
-    required this.grape,
-    required this.price,
-    required this.sizeMl,
-    required this.criticsScore,
-    required this.available,
-    required this.favourite,
-    required this.place,
-  });
-
-  factory Wine.fromJson(Map<String, dynamic> json) {
-    return Wine(
-      name: json['name'],
-      image: json['image'],
-      type: json['type'],
-      country: json['country'],
-      grape: json['grape'],
-      price: json['price'].toDouble(),
-      sizeMl: json['size_ml'],
-      criticsScore: json['critics_score'],
-      available: json['available'] == 1,
-      favourite: json['favourite'] == 1,
-      place: json['place'],
-    );
-  }
-}
+import '../entities/wine.dart';
 
 class WineCard extends StatelessWidget {
   final List<Wine> wines;
@@ -56,9 +14,7 @@ class WineCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      // Add this to ensure ListView doesn't take infinite height
       physics: const NeverScrollableScrollPhysics(),
-      // Prevent ListView from scrolling
       itemCount: wines.length,
       itemBuilder: (context, index) {
         final wine = wines[index];
@@ -138,7 +94,8 @@ class _WineListScreenState extends State<WineListScreen> {
   }
 
   Future<List<Wine>> _loadWines() async {
-    final String response = await rootBundle.loadString('lib/wines.json');
+    final String response =
+        await rootBundle.loadString('lib/assets/wines.json');
     final List<dynamic> data = jsonDecode(response);
     return data.map((wineJson) => Wine.fromJson(wineJson)).toList();
   }

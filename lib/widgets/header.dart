@@ -25,7 +25,7 @@ class _HeaderState extends State<Header> {
   }
 
   Future<void> loadJsonData() async {
-    String data = await rootBundle.loadString('lib/address.json');
+    String data = await rootBundle.loadString('lib/assets/address.json');
     setState(() {
       // Corrected to use Map<String, dynamic> to safely decode JSON
       addressOptions = List<Map<String, dynamic>>.from(json.decode(data));

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../entities/filter.dart';
+
 class CategoryFilter extends StatefulWidget {
   final List<String> categories;
   final Map<String, List<Filter>> categoryFilters;
@@ -166,29 +168,4 @@ class _CategoryFilterState extends State<CategoryFilter> {
       ],
     );
   }
-}
-
-class Filter {
-  final String name;
-  final String imageLink;
-  final int count;
-
-  Filter({
-    required this.name,
-    required this.imageLink,
-    required this.count,
-  });
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (runtimeType != other.runtimeType) return false;
-    final otherFilter = other as Filter;
-    return name == otherFilter.name &&
-        imageLink == otherFilter.imageLink &&
-        count == otherFilter.count;
-  }
-
-  @override
-  int get hashCode => Object.hash(name, imageLink, count);
 }

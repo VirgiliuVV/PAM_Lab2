@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:lab2/wine_card.dart'; // Ensure this file contains the WineCard widget
+import 'package:lab2/widgets/wine_card.dart'; // Ensure this file contains the WineCard widget
 
-import 'filter_category.dart'; // Ensure this file contains the Filter and CategoryFilter widgets
-import 'header.dart'; // Ensure this file contains the Header widget
-import 'search.dart'; // Ensure this file contains the SearchingBar widget
+import 'entities/filter.dart';
+import 'widgets/filter_category.dart'; // Ensure this file contains the Filter and CategoryFilter widgets
+import 'widgets/header.dart'; // Ensure this file contains the Header widget
+import 'widgets/search.dart'; // Ensure this file contains the SearchingBar widget
 
 void main() {
   runApp(const MyApp());
@@ -82,7 +83,7 @@ class _MyAppState extends State<MyApp> {
                       Filter(
                           name: 'Red',
                           imageLink:
-                              'https://scontent.fkiv1-1.fna.fbcdn.net/v/t1.6435-9/117747226_3367043753352900_5745952388137357987_n.jpg?stp=dst-jpg_p526x296&_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_ohc=D7-jHqIdcUcQ7kNvgFFpBMw&_nc_ht=scontent.fkiv1-1.fna&_nc_gid=AF7sUtdXXhJZc8pMAYLO8HZ&oh=00_AYDOPprm4-XTWhawql_bnXmsSUzieIWKforZZ_cxDmI32A&oe=67116124',
+                              'https://www.semalcoolshop.pt/media/catalog/product/cache/fd2f998da3b103353dc59ebf37e66336/r/e/red-wine-6-bottles-case-v7.png',
                           count: 123),
                       Filter(
                           name: 'White',
